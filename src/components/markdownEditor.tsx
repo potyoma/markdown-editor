@@ -2,7 +2,7 @@ import { Box, Container, TextareaAutosize } from "@mui/material"
 import React from "react"
 
 type Props = {
-  onChange: (markdown: string) => void,
+  onChange: (markdown: string) => void
   value: string
 }
 
@@ -13,28 +13,19 @@ const MarkdownEditor: React.FC<Props> = ({ onChange, value }) => {
   }
 
   return (
-    <Box
-      sx={{
-        border: 1,
-        borderColor: "text.primary",
-        borderRadius: "10px",
-        display: "flex",
-        justifyContent: "center",
-        width: "50vh",
-        height: "50vh",
-      }}
-    >
+    <Box component="div">
       <TextareaAutosize
         id="editor"
         placeholder="Input your markdown text here"
         value={value}
         onChange={handleMarkdownChange}
         style={{
-          width: "100%",
-          height: "98%",
-          padding: "1%",
+          width: "78vh",
+          height: "40vh",
           borderRadius: "10px",
-          border: "none",
+          border: "1",
+          borderColor: "text.primary",
+          padding: "1vh",
         }}
       />
     </Box>

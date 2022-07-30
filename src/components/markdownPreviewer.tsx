@@ -11,8 +11,18 @@ const MarkdownPreviewer: React.FC<Props> = ({ markdown }) => {
   return (
     <Container
       id="preview"
+      sx={{
+        border: 1,
+        borderColor: "text.primary",
+        borderRadius: "10px",
+        width: "80vh",
+        height: "94vh",
+        img: {
+          maxWidth: "90%",
+        },
+      }}
       dangerouslySetInnerHTML={{ __html: asHtml }}
-    ></Container>
+    />
   )
 }
 

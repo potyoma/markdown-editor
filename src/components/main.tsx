@@ -1,4 +1,4 @@
-import { Container } from "@mui/material"
+import { Box, Grid } from "@mui/material"
 import { useState } from "react"
 import { DEFAULT_VALUE } from "../defaultValue"
 import { MarkdownEditor } from "./markdownEditor"
@@ -12,20 +12,32 @@ const Main: React.FC<Props> = ({}) => {
   const handleChange = (markdown: string) => setMarkdown(markdown)
 
   return (
-    <Container
-      maxWidth={false}
-      disableGutters
+    <Box
       component="div"
       sx={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: "azure",
-        p: "1%",
+        marginTop: "1vh",
+        maxWidth: "250vh"
       }}
     >
-      <MarkdownEditor value={markdown} onChange={handleChange} />
-      <MarkdownPreviewer markdown={markdown} />
-    </Container>
+      <Grid
+        spacing={4}
+        container
+        direction="column"
+        justifyContent="space-evenly"
+        alignItems="center"
+        sx={{
+          flexGrow: 1,
+          width: "100%"
+        }}
+      >
+        <Grid item lg={5}>
+          <MarkdownEditor value={markdown} onChange={handleChange} />
+        </Grid>
+        <Grid item lg={5}>
+          <MarkdownPreviewer markdown={markdown} />
+        </Grid>
+      </Grid>
+    </Box>
   )
 }
 
